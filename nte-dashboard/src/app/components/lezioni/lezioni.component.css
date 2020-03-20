@@ -1,0 +1,67 @@
+.lezioni-container {
+  padding-left: 20px;
+  padding-right: 40px;
+  margin-top: 20px;
+}
+
+.lezioni-inner-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lezione {
+  height: 260px;
+  width: 30%;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.lezioni-title {
+  text-align: center;
+  /* border: 1px solid black; */
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 5px;
+  background-color: #908f8f;
+  color: white;
+  width: 80px;
+}
+
+.edit-lesson-icon {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: #908f8f;
+}
+
+.hex-dot {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.lesson-inner-container {
+  display: flex;
+  flex-grow: 1;
+  height: calc(100% - 16px);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+}
+
+.lesson-title {
+  font-size: 16px;
+  font-weight: 600;
+}

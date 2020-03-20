@@ -1,0 +1,146 @@
+<div class="dashboard-container">
+  <div class="dashboard-inner-container">
+
+    <div class="character-list-container">
+      <div class="character-list-inner-container">
+
+        <!--#region - infos container -->
+        <div class="dashboard-infos">
+          <div class="infos-container">
+            <span class="dashboard-title">{{firestoreService.dashboardData.dashboardTitle}}</span>
+          </div>
+
+          <div class="infos-container share-button-container">
+            <button mat-stroked-button class="share-button" (click)="invite()">Invita Giocatore</button>
+          </div>
+        </div>
+        <!--#endregion - infos container -->
+
+        <!--#region - characters list -->
+        <div class="user-list-container">
+          <ng-template ngFor let-aCharacter [ngForOf]="firestoreService.dashboardData.sheets">
+            <div class="a-user-container" (click)="characterSelected(aCharacter)">
+              <div class="character-inner-container">
+                <mat-icon *ngIf="showDeleteCharacter == true" class="a-player-icon"
+                  (click)="deleteCharacter($event, aCharacter)">delete</mat-icon>
+                <span class="a-char-name">{{ aCharacter.characterName }}</span>
+              </div>
+              <div class="player-inner-container">
+                <mat-icon class="a-player-icon">perm_identity</mat-icon>
+                <span class="a-player-name">{{ aCharacter.playerName }}</span>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+        <!--#endregion - characters list -->
+
+        <!--#region - extractions list-->
+        <extraction-list-component class="extraction-list-wrapper"></extraction-list-component>
+        <!--#endregion - extractions list-->
+
+        <!--#region - buttons container -->
+        <div class="buttons-container">
+
+          <div class="buttons-container-row">
+            <button mat-icon-button aria-label="Estrai" title="Estrai" (click)="toggleEstrazione()"
+              [ngClass]="{'button-activated': showExtractionPanel}">
+              <mat-icon>scatter_plot</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Crea PNG" title="Aggiungi PNG" (click)="addNPC()">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Help giocatore" title="Help Eroe" (click)="togglePlayerHelp()"
+              [ngClass]="{'button-activated': showPlayerHelp}">
+              <mat-icon>help</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Help master" title="Help Master" (click)="toggleMasterHelp()"
+              [ngClass]="{'button-activated': showMasterHelp}">
+              <mat-icon>live_help</mat-icon>
+            </button>
+            <button *ngIf="firestoreService.dashboardData.masterMail == authenticationService.myEmail" mat-icon-button
+              aria-label="Cancella personaggio" title="Cancella un Personaggio" (click)="toggleDeleteCharacter()"
+              [ngClass]="{'button-activated': showDeleteCharacter}">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button *ngIf="firestoreService.dashboardData.masterMail == authenticationService.myEmail" mat-icon-button
+              aria-label="Cancella intera dashboard" title="Cancella intera dashboard" (click)="deleteDashboard()">
+              <mat-icon>warning</mat-icon>
+            </button>
+          </div>
+
+        </div>
+        <!--#endregion - buttons container -->
+
+      </div>
+    </div>
+
+    <div class="board-container">
+
+      <!--#region - character sheet -->
+      <div class="board-inner-container">
+
+        <div *ngIf="firestoreService.selectedCharacter != undefined && showMasterHelp == false" class="header-area">
+          <div class="chacter-name-container header-text-container">
+            <span class="chacter-label header-text-label">Nome pg:</span>
+            <input type="text" id="namepg" [(ngModel)]="firestoreService.selectedCharacter.characterName"
+              (blur)="onBlur()"
+              [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail">
+          </div>
+
+          <div class="player-name-container header-text-container">
+            <span class="player-label header-text-label">Nome giocatore:</span>
+            <input type="text" id="nameuser" [(ngModel)]="firestoreService.selectedCharacter.playerName"
+              (blur)="onBlur()"
+              [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail">
+          </div>
+
+          <div class="rischia-container header-text-container">
+            <span class="cosa-rischia-label header-text-label">Per cosa rischia:</span>
+            <textarea id="rischia" rows="2" cols="50" [(ngModel)]="firestoreService.selectedCharacter.rischio"
+              (blur)="onBlur()"
+              [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail"></textarea>
+          </div>
+        </div>
+
+        <div *ngIf="firestoreService.selectedCharacter != undefined && showMasterHelp == false" class="first-area">
+          <honeycomb-component class="honeycomb-wrapper" [data]="firestoreService.selectedCharacter"
+            [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail">
+          </honeycomb-component>
+          <sventure-component class="sventure-wrapper" [data]="firestoreService.selectedCharacter"
+            [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail">
+          </sventure-component>
+        </div>
+
+        <div *ngIf="firestoreService.selectedCharacter != undefined && showMasterHelp == false" class="second-area">
+          <risorse-component class="risorse-wrapper" [data]="firestoreService.selectedCharacter"
+            [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail">
+          </risorse-component>
+          <lezioni-component class="lezioni-wrapper" [data]="firestoreService.selectedCharacter"
+            [disabled]="firestoreService.selectedCharacter.playerEmail != '' && firestoreService.selectedCharacter.playerEmail != authenticationService.myEmail && firestoreService.dashboardData.masterMail != authenticationService.myEmail">
+          </lezioni-component>
+        </div>
+
+      </div>
+      <!--#endregion - character sheet -->
+
+      <!--#region - eroe help -->
+      <div *ngIf="showPlayerHelp == true" class="eroe-help">
+        <div class="help-title">Help Eroe</div>
+        <div class="eroe-help-img"></div>
+      </div>
+      <!--#endregion - eroe help -->
+
+      <!--#region - master help -->
+      <div *ngIf="showMasterHelp == true" class="master-help">
+        <div class="help-title">Help Master</div>
+        <div class="master-help-img-1"></div>
+        <div class="master-help-img-2"></div>
+      </div>
+      <!--#endregion - master help -->
+
+      <sacchetto-component *ngIf="showExtractionPanel == true" class="extraction-panel"></sacchetto-component>
+
+    </div>
+
+  </div>
+</div>

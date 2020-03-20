@@ -1,0 +1,31 @@
+.extraction-list-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.extraction-list-inner-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+
+.extraction-container {
+  font-size: 12px;
+  font-family: arial;
+  margin-bottom: 3px;
+}
+
+.extraction-owner {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.extraction-list-title {
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}

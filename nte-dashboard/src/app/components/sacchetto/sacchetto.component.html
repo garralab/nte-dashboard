@@ -1,0 +1,71 @@
+<div class="componi-sacchetto-container">
+  <div class="componi-sacchetto">
+    <mat-icon class="remove-icon noselect" (click)="removeSacchetto('P')">remove</mat-icon>
+    <span class="positive-token token-big"></span>
+    <mat-icon class="add-icon noselect" (click)="addSacchetto('P')">add</mat-icon>
+  </div>
+
+  <div class="componi-sacchetto">
+    <mat-icon class="remove-icon noselect" (click)="removeSacchetto('N')">remove</mat-icon>
+    <span class="negative-token token-big"></span>
+    <mat-icon class="add-icon noselect" (click)="addSacchetto('N')">add</mat-icon>
+  </div>
+
+  <div class="componi-sacchetto">
+    <mat-icon class="remove-icon noselect" (click)="removeSacchetto('R')">remove</mat-icon>
+    <span class="random-token token-big"></span>
+    <mat-icon class="add-icon noselect" (click)="addSacchetto('R')">add</mat-icon>
+  </div>
+</div>
+
+<div class="sacchetto-container">
+  <div class="sacchetto-title">Sacchetto</div>
+  <div class="sacchetto-inner-container">
+    <div class="sacchetto">
+      <span class="token-number">{{sacchettoService.sacchetto.positive}}x</span>
+      <span class="positive-token token-big"></span>
+    </div>
+
+    <div class="sacchetto">
+      <span class="token-number">{{sacchettoService.sacchetto.negative}}x</span>
+      <span class="negative-token token-big"></span>
+    </div>
+
+    <div class="sacchetto">
+      <span class="token-number">{{sacchettoService.sacchetto.random}}x</span>
+      <span class="random-token token-big"></span>
+    </div>
+  </div>
+</div>
+
+<div class="estrai">
+  <div class="token-to-extract" *ngIf="sacchettoService.sacchetto.extracted.length <= 0">
+    <mat-icon class="remove-icon noselect" (click)="lessEstrai()">remove</mat-icon>
+    <span class="token-number">{{sacchettoService.sacchetto.extract}}</span>
+    <mat-icon class="add-icon noselect" (click)="plusEstrai()">add</mat-icon>
+  </div>
+
+  <div class="extract-controls" *ngIf="sacchettoService.sacchetto.extracted.length <= 0">
+    <button mat-stroked-button class="extract-button" (click)="estrai()">Estrai</button>
+  </div>
+
+  <div class="esito-estrazione">
+    <ng-template ngFor let-aToken [ngForOf]="sacchettoService.sacchetto.extracted">
+      <span *ngIf="aToken == 0" class="positive-token token-big"></span>
+      <span *ngIf="aToken == 1" class="negative-token token-big"></span>
+    </ng-template>
+
+    <div *ngIf="sacchettoService.sacchetto.riskExtracted.length > 0" class="risk-separator"> | </div>
+
+    <ng-template ngFor let-aToken [ngForOf]="sacchettoService.sacchetto.riskExtracted">
+      <span *ngIf="aToken == 0" class="positive-token token-big"></span>
+      <span *ngIf="aToken == 1" class="negative-token token-big"></span>
+    </ng-template>
+  </div>
+
+  <div class="rischia" *ngIf="sacchettoService.sacchetto.extracted.length > 0">
+    <button *ngIf="sacchettoService.sacchetto.riskExtracted.length <= 0 && sacchettoService.sacchetto.extracted.length > 0 && sacchettoService.sacchetto.extracted.length < 5" mat-stroked-button class="rischia-button" (click)="rischia()">Rischia</button>
+    <button mat-stroked-button class="new-extraction-button" (click)="newExtraction()">Nuova Estrazione</button>
+  </div>
+
+</div>

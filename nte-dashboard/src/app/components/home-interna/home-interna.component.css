@@ -1,0 +1,79 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #355c7d;
+  color: white;
+}
+
+.go-to-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.go-to-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-title {
+  text-transform: uppercase;
+}
+
+.new-dashboard-label {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.new-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.new-dashboard-button {
+  width: 50%;
+}
+
+.go-to-dashboard-button {
+  width: 50%;
+}
+
+.go-to-dashboard-input {
+  caret-color: white;
+}
+
+.invite-user-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invite-user {
+  width: 46%;
+}
+
+.invite-user-description {
+  max-width: 450px;
+  font-family: arial;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.mail-master-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.master-mail-check {
+  margin-bottom: 10px;
+}

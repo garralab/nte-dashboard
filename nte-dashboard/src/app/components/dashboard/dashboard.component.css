@@ -1,0 +1,284 @@
+.dashboard-container {
+  display: flex;
+  height: 100%;
+}
+
+.dashboard-inner-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.character-list-container {
+  display: flex;
+  flex-grow: 1;
+  max-width: 250px;
+  border-right: 2px solid white;
+  min-width: 150px;
+  overflow-x: hidden;
+  background-color: #355c7d;
+  color: white;
+}
+
+.board-container {
+  display: flex;
+  flex-grow: 1;
+  /* overflow-y: auto; */
+  min-width: 750px;
+  flex-direction: column;
+}
+
+.board-inner-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.first-area {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.second-area {
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 60px;
+}
+
+.risorse-wrapper {
+  flex-grow: 1;
+  min-width: 40%;
+}
+
+.lezioni-wrapper {
+  flex-grow: 1.5;
+}
+
+.header-area {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: arial;
+  font-size: 14px;
+  /* margin-bottom: 20px; */
+  max-width: 1000px;
+}
+
+.header-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text-label {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #908f8f;
+  color: white;
+  min-width: 160px;
+}
+
+.character-list-inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  flex-grow: 1;
+  justify-content: space-between;
+  max-width: inherit;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 2px solid white;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.buttons-container-row {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-infos {
+  border-bottom: 2px solid white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: inherit;
+  width: 100%;
+}
+
+.infos-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-title {
+  font-family: arial;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+}
+
+.dashboard-info-label {
+  font-family: arial;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.dashboard-link {
+  font-family: arial;
+  font-size: 14px;
+}
+
+.infos-container.share-button-container {
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.rischia-container.header-text-container {
+  width: 300px;
+}
+
+#rischia {
+  resize: none;
+}
+
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: calc(100% - 20px);
+  max-width: inherit;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow-y: auto;
+}
+
+.a-user-container {
+  font-family: arial;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  border: 1px solid white;
+  padding: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.a-user-container:hover {
+  background-color: white;
+  color: #355c7d;
+}
+
+.player-inner-container {
+  display: flex;
+  align-items: center;
+}
+
+.character-inner-container {
+  display: flex;
+  align-items: center;
+}
+
+.eroe-help {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  min-height: 240px;
+  overflow-y: auto;
+  border-top: 1px solid black;
+}
+
+.master-help {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.eroe-help-img {
+  background-image: url("../../../assets/help_eroe.JPG");
+  display: flex;
+  flex-grow: 1;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 450px;
+}
+
+.help-title {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.master-help-img-1 {
+  background-image: url("../../../assets/help_master_1.JPG");
+  display: flex;
+  flex-grow: 1;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 600px;
+}
+
+.master-help-img-2 {
+  background-image: url("../../../assets/help_master_2.JPG");
+  display: flex;
+  flex-grow: 1;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 600px;
+}
+
+.button-activated {
+  color: black;
+  background-color: #e0ae40;
+}
+
+
+.extraction-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px solid;
+  background-color: #c3d0dc;
+  min-height: 100px;
+}
+
+.extraction-list-wrapper {
+  max-width: inherit;
+  width: calc(100% - 20px);
+  min-height: 160px;
+  max-height: 160px;
+  border-top: 2px solid white;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+}

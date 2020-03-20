@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: arial;
+  display: flex;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+mat-icon{
+  font-family: 'Material Icons' !important;
+  }
+
+.go-to-dashboard-id .mat-form-field-label,
+.go-to-dashboard-pwd .mat-form-field-label,
+.invite-user .mat-form-field-label {
+  color: white !important;
+}
+
+.go-to-dashboard-id .mat-form-field-underline,
+.go-to-dashboard-pwd .mat-form-field-underline,
+.invite-user .mat-form-field-underline {
+  background-color: white !important;
+}
+
+.go-to-dashboard-id .mat-form-field-ripple,
+.go-to-dashboard-pwd .mat-form-field-ripple,
+.invite-user .mat-form-field-ripple {
+  display: none;
+}
+
+.random-token {
+  height: 6px;
+  width: 6px;
+  background-color: #ababab;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.positive-token {
+  height: 6px;
+  width: 6px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.negative-token {
+  height: 6px;
+  width: 6px;
+  background-color: black;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+
+.go-to-dashboard-id .mat-select-value {
+  color: white;
+}
+
+.share-button,
+.extract-button,
+.rischia-button,
+.new-extraction-button {
+  border-color: white !important;
+}
+
+.share-button:hover,
+.extract-button:hover,
+.rischia-button:hover,
+.new-extraction-button:hover {
+  background-color: white !important;
+  color: #355c7d !important;
+}
+
+.mat-dialog-actions {
+  justify-content: space-between;
+}
+
+.invite-user-form {
+  width: 100%;
+}
+
+.hex-dot-tokenized {
+  background-color: black !important;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}

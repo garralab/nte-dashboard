@@ -1,0 +1,33 @@
+<div class="lezioni-container">
+
+  <div class="lezioni-title">Lezioni</div>
+
+  <div class="lezioni-inner-container">
+    <div class="lezione" (mouseenter)="isLessonOneHover = true" (mouseleave) = "isLessonOneHover = false" (click)="editLesson(0)">
+      <mat-icon *ngIf="isLessonOneHover" class="edit-lesson-icon">edit</mat-icon>
+      <div class="lesson-inner-container">
+        <span class="lesson-title">{{ characterSheet.lessons[0]?.name }}</span>
+        <p class="lesson-decription">{{ characterSheet.lessons[0]?.description }}</p>
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.lessons[0]?.activated}" (mouseenter)="isLessonOneHover = false" (mouseleave) = "isLessonOneHover = true" (click)="triggerLesson($event, 0)"></div>
+      </div>
+    </div>
+
+    <div class="lezione" (mouseenter)="isLessonTwoHover = true" (mouseleave) = "isLessonTwoHover = false" (click)="editLesson(1)">
+      <mat-icon *ngIf="isLessonTwoHover" class="edit-lesson-icon">edit</mat-icon>
+      <div class="lesson-inner-container">
+        <span class="lesson-title">{{ characterSheet.lessons[1]?.name }}</span>
+        <p class="lesson-decription">{{ characterSheet.lessons[1]?.description }}</p>
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.lessons[1]?.activated}" (mouseenter)="isLessonOneHover = false" (mouseleave) = "isLessonOneHover = true" (click)="triggerLesson($event, 1)"></div>
+      </div>
+    </div>
+
+    <div class="lezione" (mouseenter)="isLessonThreeHover = true" (mouseleave) = "isLessonThreeHover = false" (click)="editLesson(2)">
+      <mat-icon *ngIf="isLessonThreeHover" class="edit-lesson-icon">edit</mat-icon>
+      <div class="lesson-inner-container">
+        <span class="lesson-title">{{ characterSheet.lessons[2]?.name }}</span>
+        <p class="lesson-decription">{{ characterSheet.lessons[2]?.description }}</p>
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.lessons[2]?.activated}" (mouseenter)="isLessonOneHover = false" (mouseleave) = "isLessonOneHover = true" (click)="triggerLesson($event, 2)"></div>
+      </div>
+    </div>
+  </div>
+</div>

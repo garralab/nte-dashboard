@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Modifica Lezione</h1>
+<div mat-dialog-content>
+  <div class="edit-lesson-form">
+    <span class="lesson-title-label">Titolo lezione</span>
+    <input class="lesson-title-input" [(ngModel)]="data.name">
+  </div>
+
+  <div class="edit-lesson-form">
+    <span class="lesson-title-label">Descrizione lezione</span>
+    <textarea class="lesson-description-area" rows="3" cols="40" [(ngModel)]="data.description"></textarea>
+  </div>
+
+<div class="lesson-helper-container">
+  <span class="lesson-helper"> Nella descrizione:</span>
+  <span class="lesson-helper"> Scrivi @R@ per vedere <span class="random-token"></span> una volta salvato</span>
+  <span class="lesson-helper"> Scrivi @B@ per vedere <span class="positive-token"></span> una volta salvato</span>
+  <span class="lesson-helper"> Scrivi @N@ per vedere <span class="negative-token"></span> una volta salvato</span>
+</div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annulla</button>
+  <button mat-button (click)="onOkClick()">Ok</button>
+</div>

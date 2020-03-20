@@ -1,0 +1,193 @@
+<div class="hex-container">
+
+  <div class="ibws-fix">
+    <div class="hexynone"></div>
+    <div class="hexynone"></div>
+
+    <div class="hexy">
+      <div class="hexy-link s-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.skn2.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">0</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.skn2.tokenized}" (click)="triggerTrat('skn2')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ibws-fix">
+    <div class="hexy">
+      <div class="hexy-link se-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.ske1.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">2.1</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.ske1.tokenized}" (click)="triggerTrat('ske1')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link s-link"></div>
+      <div class="hexy-link se-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.skn1.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">2.2</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.skn1.tokenized}" (click)="triggerTrat('skn1')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <p class="hex-sugg">Qualità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.qn.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">2.3</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.qn.tokenized}" (click)="triggerTrat('qn')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link s-link"></div>
+      <div class="hexy-link sw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.skn3.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">2.4</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.skn3.tokenized}" (click)="triggerTrat('skn3')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link sw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.skw1.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">2.5</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.skw1.tokenized}" (click)="triggerTrat('skw1')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ibws-fix">
+    <div class="hexy">
+      <div class="hexy-link ne-link"></div>
+      <div class="hexy-link se-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.ske2.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">3.1</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.ske2.tokenized}" (click)="triggerTrat('ske2')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <p class="hex-sugg">Qualità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.qne.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">3.2</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.qne.tokenized}" (click)="triggerTrat('qne')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content hex-img">
+        <p class="hex-sugg">Archetipo</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.archetype.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">3.3</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.archetype.tokenized}" (click)="triggerTrat('archetype')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <p class="hex-sugg">Qualità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.qnw.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">3.4</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.qnw.tokenized}" (click)="triggerTrat('qnw')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link nw-link"></div>
+      <div class="hexy-link sw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.skw2.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">3.5</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.skw2.tokenized}" (click)="triggerTrat('skw2')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ibws-fix">
+    <div class="hexy">
+      <div class="hexy-link ne-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.ske3.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">4.1</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.ske3.tokenized}" (click)="triggerTrat('ske3')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <p class="hex-sugg">Qualità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.qse.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">4.2</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.qse.tokenized}" (click)="triggerTrat('qse')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <p class="hex-sugg">Qualità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.qs.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">4.3</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.qs.tokenized}" (click)="triggerTrat('qs')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <p class="hex-sugg">Qualità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.qsw.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">4.4</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.qsw.tokenized}" (click)="triggerTrat('qsw')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link nw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.skw3.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">4.5</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.skw3.tokenized}" (click)="triggerTrat('skw3')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ibws-fix">
+    <div class="hexynone"></div>
+    <div class="hexy">
+      <div class="hexy-link n-link"></div>
+      <div class="hexy-link ne-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.sks1.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">5.1</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.sks1.tokenized}" (click)="triggerTrat('sks1')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link n-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.sks2.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">5.2</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.sks2.tokenized}" (click)="triggerTrat('sks2')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link n-link"></div>
+      <div class="hexy-link nw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Abilità</p>
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [(ngModel)]="characterSheet.trats.sks3.name" [disabled]="isEditDisabled"></textarea>
+        <!-- <p class="hex-label">5.3</p> -->
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.trats.sks3.tokenized}" (click)="triggerTrat('sks3')"></div>
+      </div>
+    </div>
+    <div class="hexynone"></div>
+  </div>
+
+</div>

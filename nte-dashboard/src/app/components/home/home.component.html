@@ -1,0 +1,60 @@
+<div class="home-container">
+  <div class="home-inner-container">
+
+    <div class="dashboard-title-container">
+      <h1 class="dashboard-title">Not The End - Dashboard</h1>
+    </div>
+
+    <!--#region - log in -->
+    <div *ngIf="showNewUser == false" class="go-to-dashboard-container">
+      <form class="go-to-form" (keydown.enter)="onEnter($event)">
+        <mat-form-field class="go-to-dashboard-id">
+          <mat-label class="go-to-dashboard-id-label">Email</mat-label>
+          <input matInput class="go-to-dashboard-input" [(ngModel)]="logEmail" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="go-to-dashboard-pwd">
+          <mat-label class="go-to-dashboard-pwd-label">Password</mat-label>
+          <input matInput class="go-to-dashboard-input" type="password" [(ngModel)]="logPass" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </form>
+
+      <button mat-raised-button class="go-to-dashboard-button" (click)="logIn()">Accedi</button>
+    </div>
+
+    <div *ngIf="showNewUser == false" class="new-dashboard-container">
+      <span class="new-dashboard-label">oppure</span>
+      <button mat-raised-button class="new-dashboard-button" (click)="toggleCreate()">Registrati</button>
+    </div>
+    <!--#endregion - log in -->
+
+    <!--#region - create dashboard -->
+    <div *ngIf="showNewUser == true" class="go-to-dashboard-container">
+      <form class="go-to-form" (keydown.enter)="onEnter($event)">
+        <mat-form-field class="go-to-dashboard-id">
+          <mat-label class="go-to-dashboard-id-label">Email</mat-label>
+          <input matInput class="go-to-dashboard-input" [(ngModel)]="signEmail" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="go-to-dashboard-pwd">
+          <mat-label class="go-to-dashboard-pwd-label">Password</mat-label>
+          <input matInput class="go-to-dashboard-input" type="password" [(ngModel)]="signPass" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="go-to-dashboard-pwd">
+          <mat-label class="go-to-dashboard-pwd-label">Conferma Password</mat-label>
+          <input matInput class="go-to-dashboard-input" type="password" [(ngModel)]="signConfPass" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </form>
+
+      <button mat-raised-button class="go-to-dashboard-button" (click)="signUp()">Crea</button>
+    </div>
+
+    <div *ngIf="showNewUser == true" class="new-dashboard-container">
+      <span class="new-dashboard-label">oppure</span>
+      <button mat-raised-button class="new-dashboard-button" (click)="toggleCreate()">Torna Indietro</button>
+    </div>
+    <!--#endregion - create dashboard -->
+
+  </div>
+</div>

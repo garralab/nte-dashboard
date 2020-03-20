@@ -1,0 +1,61 @@
+<div class="sventure-container">
+
+  <div class="sventure-title">Sventure</div>
+
+  <div class="ibws-fix">
+    <div class="hexy">
+      <div class="hex-content">
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [disabled]="isEditDisabled"
+          [(ngModel)]="characterSheet.sventure[0]"></textarea>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [disabled]="isEditDisabled"
+          [(ngModel)]="characterSheet.sventure[1]"></textarea>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [disabled]="isEditDisabled"
+          [(ngModel)]="characterSheet.sventure[2]"></textarea>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hex-content">
+        <textarea class="hex-label-input" rows="3" cols="10" (blur)="onBlur()" [disabled]="isEditDisabled"
+          [(ngModel)]="characterSheet.sventure[3]"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="sventure-title">Stati</div>
+
+  <div class="ibws-fix">
+    <div class="hexy">
+      <div class="hexy-link sw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Confusione</p>
+        <p class="hex-label">
+          <span class="hex-label-span">Nella prossima prova aggiungi al pool </span>
+          <span class="random-token"></span>
+          <span class="hex-label-span"> invece di </span>
+          <span class="positive-token"></span>
+        </p>
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.dazed}" (click)="triggerState('dazed')"></div>
+      </div>
+    </div>
+    <div class="hexy">
+      <div class="hexy-link sw-link"></div>
+      <div class="hex-content">
+        <p class="hex-sugg">Adrenalina</p>
+        <p class="hex-label">
+          <span class="hex-label-span">Nella prossima prova dovrai estrarre almeno 4 </span>
+          <span class="random-token"></span>
+        </p>
+        <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.adrenaline}" (click)="triggerState('adrenaline')"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

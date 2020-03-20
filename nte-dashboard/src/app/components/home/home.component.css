@@ -1,0 +1,47 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #355c7d;
+  color: white;
+}
+
+.go-to-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.go-to-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.dashboard-title {
+  text-transform: uppercase;
+}
+
+.new-dashboard-label {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.new-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.new-dashboard-button {
+  width: 50%;
+}
+
+.go-to-dashboard-button {
+  width: 50%;
+}
+
+.go-to-dashboard-input {
+  caret-color: white;
+}

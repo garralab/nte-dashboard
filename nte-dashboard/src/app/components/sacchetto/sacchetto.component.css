@@ -1,0 +1,93 @@
+.componi-sacchetto-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.componi-sacchetto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-icon {
+  cursor: pointer;
+}
+
+.remove-icon {
+  cursor: pointer;
+}
+
+.token-big {
+  height: 12px;
+  width: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.sacchetto-inner-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-left: 20px;
+  border: 1px solid black;
+}
+
+.sacchetto-container {
+  justify-content: center;
+}
+
+.sacchetto-title {
+  text-align: center;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.sacchetto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.sacchetto .token-big {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.estrai {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.token-to-extract {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.token-to-extract .token-number {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+  cursor: default;
+}
+
+.extract-controls {
+  margin-top: 10px;
+}
+
+.esito-estrazione {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.new-extraction-button {
+  margin-left: 10px;
+}

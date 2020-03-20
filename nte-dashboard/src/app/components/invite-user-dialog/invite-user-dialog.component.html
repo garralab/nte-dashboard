@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Invita un giocatore</h1>
+<div mat-dialog-content>
+  <mat-form-field class="invite-user-form">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email">
+    <mat-error *ngIf="isNotValid">
+      Email non valida
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annulla</button>
+  <button mat-button (click)="onOkClick()">Ok</button>
+</div>

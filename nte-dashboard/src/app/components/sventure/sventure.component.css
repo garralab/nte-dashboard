@@ -1,0 +1,158 @@
+.sventure-container .ibws-fix {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.hexy {
+  position: relative;
+  margin: 5px calc(65px*.30);
+  background-color: #efefef;
+  height: calc(65px*1.7320508075688772935274463);
+  width: 65px;
+  display: inline-block;
+}
+
+.hexy,
+.hexy:before,
+.hexy:after {
+  height: calc(65px*1.7320508075688772935274463);
+  width: 65px;
+}
+
+.hexy:before {
+  position: absolute;
+  content:"";
+  background-color: inherit;
+  transform: rotate(60deg);
+  overflow: hidden;
+}
+
+.hexy:after {
+  position: absolute;
+  content:"";
+  background-color: inherit;
+  transform: rotate(-60deg);
+}
+
+/* .hexy:nth-child(odd) {
+  top: 75px;
+} */
+
+.hex-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(80px*1.4);
+  height: 90%;
+  font-size: 1rem;
+  text-align: center;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex-container {
+  width:100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.ibws-fix {
+  font-size: 0;
+}
+
+.hexyinner {
+  position: absolute;
+  background-color: black;
+  opacity:0.5;
+  height: calc(70px*1.7320508075688772935274463);
+  width: 70px;
+  top: 8px;
+  left: 5px;
+  display: inline-block;
+
+}
+
+.hexyinner,
+.hexyinner:before,
+.hexyinner:after {
+  height: calc(70px*1.7320508075688772935274463);
+  width: 70px;
+  z-index: 20;
+}
+
+.hexyinner:before {
+  position: absolute;
+  content:"";
+  background-color: inherit;
+  transform: rotate(60deg);
+  overflow: hidden;
+}
+
+.hexyinner:after {
+  position: absolute;
+  content:"";
+  background-color: inherit;
+  transform: rotate(-60deg);
+  overflow: hidden;
+}
+
+.hex-sugg {
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.hex-dot {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sventure-title {
+  text-align: center;
+  margin-top: 30px;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #908f8f;
+  color: white;
+}
+
+.hex-label {
+  font-size: 12px;
+  margin: 0px;
+  text-align: center;
+  resize: none;
+  background-color: transparent;
+  border: 0px;
+}
+
+.hex-label-input {
+  font-size: 12px;
+  margin: 0px;
+  text-align: center;
+  resize: none;
+  background-color: transparent;
+  border: 0px;
+}
+
+.hex-label-input:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hex-label-input:focus {
+  text-decoration: none !important;
+  cursor: text !important;
+}

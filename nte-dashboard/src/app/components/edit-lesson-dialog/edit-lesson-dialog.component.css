@@ -1,0 +1,23 @@
+.lesson-helper-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-family: Arial;
+}
+
+.lesson-helper {
+  margin-bottom: 3px;
+}
+
+.edit-lesson-form {
+  width: 100%;
+  display: flex;
+}
+
+.edit-lesson-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+

@@ -1,0 +1,97 @@
+<div class="home-container">
+  <div class="home-inner-container">
+
+    <div class="dashboard-title-container">
+      <h1 class="dashboard-title">Not The End - Dashboard</h1>
+    </div>
+
+    <!--#region - enter dashboard -->
+    <div *ngIf="showCreateDashboard == false" class="go-to-dashboard-container">
+      <form class="go-to-form">
+        <mat-form-field class="go-to-dashboard-id">
+          <mat-label class="go-to-dashboard-id-label">Scegli la dashboard</mat-label>
+          <mat-select [(ngModel)]="selectedDashboard" [ngModelOptions]="{standalone: true}">
+            <mat-option *ngFor="let aDash of (firestoreService.dashboardDatasListObservable | async)"
+              [value]="aDash.dashboardID">
+              {{aDash.dashboardTitle}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+
+      <button mat-raised-button class="go-to-dashboard-button" (click)="enterDashboard()">Entra</button>
+    </div>
+
+    <div *ngIf="showCreateDashboard == false" class="new-dashboard-container">
+      <span class="new-dashboard-label">oppure</span>
+      <button mat-raised-button class="new-dashboard-button" (click)="createDashboard()">Crea Nuova Dashboard</button>
+    </div>
+    <!--#endregion - enter dashboard -->
+
+    <!--#region - create dashboard -->
+    <div *ngIf="showCreateDashboard == true" class="go-to-dashboard-container">
+      <form class="create-form">
+        <mat-form-field class="go-to-dashboard-id">
+          <mat-label class="go-to-dashboard-id-label">Titolo Dashboard</mat-label>
+          <input matInput class="go-to-dashboard-input" [(ngModel)]="dashTitle" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <div class="mail-master-row">
+          <mat-checkbox class="master-mail-check" [(ngModel)]="isMasterMail" [ngModelOptions]="{standalone: true}">Sono il master</mat-checkbox>
+          <span *ngIf="isMasterMail == false" class="master-mail-oppure">oppure</span>
+          <mat-form-field *ngIf="isMasterMail == false" class="invite-user">
+            <mat-label class="invite-user-label">Email master</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="masterMail" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+
+        <div class="invite-user-row">
+          <mat-form-field class="invite-user">
+            <mat-label class="invite-user-label">Email giocatore</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="inv1" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <mat-form-field class="invite-user">
+            <mat-label class="invite-user-label">Email giocatore</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="inv2" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+
+        <div class="invite-user-row">
+          <mat-form-field class="invite-user">
+            <mat-label class="invite-user-label">Email giocatore</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="inv3" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <mat-form-field class="invite-user">
+            <mat-label class="invite-user-label">Email giocatore</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="inv4" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+
+        <div class="invite-user-row">
+          <mat-form-field class="invite-user">
+            <mat-label class="invite-user-label">Email giocatore</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="inv5" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <mat-form-field class="invite-user">
+            <mat-label class="invite-user-label">Email giocatore</mat-label>
+            <input matInput class="go-to-dashboard-input" [(ngModel)]="inv6" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+
+        <p class="invite-user-description">All'interno della dashboard potrete invitare altri giocatori in caso il
+          vostro gruppo sia composto da più di 7 persone. Se i gicoatori sono meno di 6 lasciate vuoti i campi.</p>
+
+      </form>
+
+      <button mat-raised-button class="go-to-dashboard-button" (click)="newDashboard()">Crea</button>
+    </div>
+
+    <div *ngIf="showCreateDashboard == true" class="new-dashboard-container">
+      <span class="new-dashboard-label">oppure</span>
+      <button mat-raised-button class="new-dashboard-button" (click)="createDashboard()">Torna Indietro</button>
+    </div>
+    <!--#endregion - create dashboard -->
+
+  </div>
+</div>

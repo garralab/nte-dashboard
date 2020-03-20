@@ -1,0 +1,25 @@
+<div class="extraction-list-container">
+  <div class="extraction-list-title">Estrazioni</div>
+  <div class="extraction-list-inner-container">
+    <ng-template ngFor let-anExtraction [ngForOf]="firestoreService.dashboardData.extractions">
+      <div class="extraction-container">
+        <span class="extraction-owner">{{anExtraction.owner}}</span>
+        <span *ngIf="anExtraction.isRisk == false" class="extraction-action"> - estrae: </span>
+        <span *ngIf="anExtraction.isRisk == true" class="extraction-action"> - rischia: </span>
+
+        <ng-template ngFor let-aToken [ngForOf]="anExtraction.extractionResult">
+          <span *ngIf="aToken == 0" class="positive-token token-big"></span>
+          <span *ngIf="aToken == 1" class="negative-token token-big"></span>
+        </ng-template>
+
+        <span *ngIf="anExtraction.extractionRiskResult.length > 0" class="risk-separator"> | </span>
+
+        <ng-template ngFor let-aToken [ngForOf]="anExtraction.extractionRiskResult">
+          <span *ngIf="aToken == 0" class="positive-token token-big"></span>
+          <span *ngIf="aToken == 1" class="negative-token token-big"></span>
+        </ng-template>
+
+      </div>
+    </ng-template>
+  </div>
+</div>
