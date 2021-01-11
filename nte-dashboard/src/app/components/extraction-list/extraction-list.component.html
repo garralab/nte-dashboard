@@ -1,7 +1,22 @@
 <div class="extraction-list-container">
   <div class="extraction-list-title">Estrazioni</div>
+  <div>
+    <button mat-icon-button aria-label="Pulisci" title="Pulisci" (click)="clear()">
+    <mat-icon>clear_all</mat-icon>
+  </button>    
+  </div>
   <div class="extraction-list-inner-container">
     <ng-template ngFor let-anExtraction [ngForOf]="firestoreService.dashboardData.extractions">
+      <div *ngIf="anExtraction.isRisk == false"  class="extraction-container">
+        <span class="extraction-owner">{{anExtraction.owner}}</span>
+        <span class="extraction-action"> - ha nel sacchetto: </span>
+
+        <ng-template ngFor let-aToken [ngForOf]="anExtraction.extractionSack">
+          <span *ngIf="aToken == 0" class="positive-token token-big"></span>
+          <span *ngIf="aToken == 1" class="negative-token token-big"></span>
+        </ng-template>
+
+      </div>
       <div class="extraction-container">
         <span class="extraction-owner">{{anExtraction.owner}}</span>
         <span *ngIf="anExtraction.isRisk == false" class="extraction-action"> - estrae: </span>

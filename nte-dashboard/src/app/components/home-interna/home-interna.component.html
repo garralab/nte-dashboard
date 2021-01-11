@@ -21,6 +21,11 @@
       </form>
 
       <button mat-raised-button class="go-to-dashboard-button" (click)="enterDashboard()">Entra</button>
+      <div *ngIf="isDevMode">
+        <p><button mat-raised-button (click)="exportDashboard()">Esporta</button></p>
+        <p><button mat-raised-button (click)="importDashboard()">Importa</button></p>
+      </div>
+      
     </div>
 
     <div *ngIf="showCreateDashboard == false" class="new-dashboard-container">

@@ -1,0 +1,12 @@
+.import-container {
+    height: 50%;
+}
+
+.import-inner-container {
+    width: 80%;
+    margin: 5%;
+}
+
+.json-text-area  {
+    width: 100%;    
+}

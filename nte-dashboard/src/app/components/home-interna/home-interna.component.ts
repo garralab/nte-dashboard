@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { isDevMode } from '@angular/core';
 import { Functions } from 'src/app/utilities.functions';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -28,6 +29,8 @@ export class HomeInternaComponent {
   public inv6: string = "";
 
   public showCreateDashboard: boolean = false;
+
+  public isDevMode: boolean = isDevMode();
 
   constructor(
     public firestoreService: FirestoreService,
@@ -101,5 +104,21 @@ export class HomeInternaComponent {
     //ask for data
     this.firestoreService.enterDashboard(this.selectedDashboard);
   }
+
+  /**
+   * export dashboard
+   */
+  public exportDashboard() {
+    if (Functions.IsNullOrUndefined(this.selectedDashboard) == true)
+      return;
+    this.firestoreService.exportDashboard(this.selectedDashboard);
+  }
+
+  /**
+   * export dashboard
+   */
+  public importDashboard() {
+    this.firestoreService.startImportDashboard();
+  }    
 
 }

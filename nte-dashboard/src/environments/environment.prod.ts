@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyD5l8O2-X8JHngvQUqnV4qbsVm0Xq7obcg",
-    authDomain: "nte-dashboard.firebaseapp.com",
-    databaseURL: "https://nte-dashboard.firebaseio.com",
-    projectId: "nte-dashboard",
-    storageBucket: "nte-dashboard.appspot.com",
-    messagingSenderId: "379400656423",
-    appId: "1:379400656423:web:890561e145475790b8a002"
+    apiKey: "AIzaSyB_sVAjiR3Pj_BKmn2Z6yWqtvWGqQKp3QU",
+    authDomain: "nte-dashboard-97d73.firebaseapp.com",
+    databaseURL: "https://nte-dashboard-97d73.firebaseio.com",
+    projectId: "nte-dashboard-97d73",
+    storageBucket: "nte-dashboard-97d73.appspot.com",
+    messagingSenderId: "346002655743",
+    appId: "1:346002655743:web:e8f144eec97ccf162a3fca"
   }
 };

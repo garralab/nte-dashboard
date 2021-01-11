@@ -99,7 +99,8 @@ export class Sacchetto {
   public random: number = 0;
   public extract: number = 1;
 
-  public extractionSack: Token[] = [];
+  public initialExtractionSack: Token[] = [];
+  public extractionSack: Token[] = [];  
   public extracted: Token[] = [];
   public riskExtracted: Token[] = [];
 
@@ -113,9 +114,11 @@ export class Extraction {
   public isRisk: boolean = false;
   public extractionResult: Token[] = [];
   public extractionRiskResult: Token[] = [];
+  public extractionSack: Token[] = [];
 
-  constructor(owner: string, extractionResult: Token[]) {
+  constructor(owner: string, extractionResult: Token[], extractionSack: Token[]) {
     this.owner = owner;
     this.extractionResult = extractionResult;
+    this.extractionSack = extractionSack;
   }
 }
