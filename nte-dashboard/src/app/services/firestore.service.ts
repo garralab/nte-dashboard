@@ -227,4 +227,9 @@ export class FirestoreService {
       });
   }
 
+  public deleteDashboard()
+  {
+    this.dashboardDataDoc.delete();
+  }
+
 }

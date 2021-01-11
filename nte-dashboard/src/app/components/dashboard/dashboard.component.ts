@@ -124,6 +124,8 @@ export class DashboardComponent {
    * triggered when the master click the delete button in the sidebar
    */
   public deleteDashboard() {
-    //TODO: DELETE
+    if (window.confirm("Se procedi cancellerai l'intera dashboard (il processo è irreversibile), vuoi continuare?")) {
+      this.firestoreService.deleteDashboard();
+    }
   }
 }
