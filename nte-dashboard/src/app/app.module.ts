@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ExportComponent } from './components/export/export.component';
+import { ImportComponent } from './components/import/import.component';
 import { HoneycombComponent } from './components/honeycomb/honeycomb.component';
 import { SventureComponent } from './components/sventure/sventure.component';
 import { RisorseComponent } from './components/risorse/risorse.component';
@@ -43,6 +45,8 @@ import { ExtractionListComponent } from './components/extraction-list/extraction
     HomeComponent,
     HomeInternaComponent,
     DashboardComponent,
+    ExportComponent,
+    ImportComponent,
     HoneycombComponent,
     SventureComponent,
     RisorseComponent,

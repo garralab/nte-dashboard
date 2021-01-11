@@ -33,6 +33,8 @@ export class SacchettoService {
         this.sacchetto.extractionSack.push(Token.Negative);
       }
     }
+    this.sacchetto.initialExtractionSack = []
+    this.sacchetto.extractionSack.forEach(x => this.sacchetto.initialExtractionSack.push(x));
 
     this.shuffle();
     //#endregion - preparing the sack

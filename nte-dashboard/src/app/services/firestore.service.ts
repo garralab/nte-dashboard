@@ -21,6 +21,7 @@ export class FirestoreService {
   private dashboardDataDocSubscription: Subscription;
 
   public dashboardData: DashboardData;
+  public exportedDashboardData: string;
   public selectedCharacter: CharacterSheet;
   // public dashboardDataDocBehavior: BehaviorSubject<DashboardData> = new BehaviorSubject<DashboardData>(undefined);
 
@@ -77,6 +78,52 @@ export class FirestoreService {
   }
 
   /**
+   * exit from current dashboard
+   */
+  public exitDashboard() {
+    let self = this;
+    if (Functions.IsNullOrUndefined(this.dashboardDataDocSubscription) == false)
+      this.dashboardDataDocSubscription.unsubscribe();
+
+    this.dashboardDataDoc = null
+    this.dashboardDataDocObservable = null;
+    this.dashboardDataDocSubscription = null;
+
+    self.routerService.navigate(['home-interna'], { skipLocationChange: true, queryParams: {} });
+    self.location.replaceState("");    
+  }
+  
+  public exportDashboard(uid: string) {
+    let self = this;
+
+    this.dashboardDataDoc = this.afs.doc<DashboardData>('dashboard/' + uid);
+    this.dashboardDataDocObservable = this.dashboardDataDoc.valueChanges();
+    this.dashboardDataDocSubscription = this.dashboardDataDocObservable.subscribe((dashboardData: DashboardData) => {
+      self.dashboardData = dashboardData;
+      self.exportedDashboardData = JSON.stringify(this.dashboardData, null, 2);
+
+      self.routerService.navigate(['export'], { skipLocationChange: true, queryParams: {} });
+      self.location.replaceState("");
+    });
+  }
+
+  public startImportDashboard() {
+    let self = this;
+    self.routerService.navigate(['import'], { skipLocationChange: true, queryParams: {} });
+    self.location.replaceState("");
+  }
+
+  public importDashboard(importData: string) {
+    let self = this;
+    const newDashboardNormalized: DashboardData = JSON.parse(importData);    
+    this.dashboardDataDoc = this.afs.doc<DashboardData>('dashboard/' + newDashboardNormalized.dashboardID);
+    this.dashboardDataDoc.set(newDashboardNormalized)
+      .then((value: any) => {
+        self.exitDashboard();
+      });
+  }    
+
+  /**
    * helper to create and initialize a new dashboard
    * @param dashTitle dashboard title
    * @param userMails users emails
@@ -126,11 +173,11 @@ export class FirestoreService {
   public removeCharacterAndPlayer(aCharacter: CharacterSheet) {
     if (Functions.IsStringEmpty(aCharacter.playerEmail) == true) {
       // NPC
-      this.dashboardData.sheets = this.dashboardData.sheets.filter((aSheet: CharacterSheet) => aSheet.uid == aCharacter.uid);
+      this.dashboardData.sheets = this.dashboardData.sheets.filter((aSheet: CharacterSheet) => aSheet.uid != aCharacter.uid);
     } else {
       //PC
-      this.dashboardData.invitedPlayerMail = this.dashboardData.invitedPlayerMail.filter((aMail: string) => aMail == aCharacter.playerEmail);
-      this.dashboardData.sheets = this.dashboardData.sheets.filter((aSheet: CharacterSheet) => aSheet.uid == aCharacter.uid);
+      this.dashboardData.invitedPlayerMail = this.dashboardData.invitedPlayerMail.filter((aMail: string) => aMail != aCharacter.playerEmail);
+      this.dashboardData.sheets = this.dashboardData.sheets.filter((aSheet: CharacterSheet) => aSheet.uid != aCharacter.uid);
     }
 
     const self: this = this;
@@ -202,7 +249,7 @@ export class FirestoreService {
       owner = myPg.characterName;
     }
 
-    const newExtractionEntry: Extraction = new Extraction(owner, sacchetto.extracted);
+    const newExtractionEntry: Extraction = new Extraction(owner, sacchetto.extracted, sacchetto.initialExtractionSack);
     if (sacchetto.riskExtracted.length > 0) {
       newExtractionEntry.isRisk = true;
       newExtractionEntry.extractionRiskResult = sacchetto.riskExtracted;
@@ -225,6 +272,29 @@ export class FirestoreService {
           positionClass: "toast-top-center"
         });
       });
+  }
+
+  public deleteDashboard()
+  {
+    this.dashboardDataDoc.delete();
+    this.exitDashboard();
+  }
+
+  public clearExtractionList()
+  {
+    this.dashboardData.extractions = [];
+
+    const self: this = this;
+    const dashboardNormalized: any = JSON.parse(JSON.stringify(this.dashboardData));
+    this.dashboardDataDoc.update(dashboardNormalized)
+      .catch((error: any) => {
+        // Error
+        self.toastr.error("Errore, riavviare l'applicazione per favore", 'Errore', {
+          timeOut: 10000,
+          extendedTimeOut: 4000,
+          positionClass: "toast-top-center"
+        });
+      });    
   }
 
 }

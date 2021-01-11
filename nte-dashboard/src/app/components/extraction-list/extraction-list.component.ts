@@ -14,4 +14,9 @@ export class ExtractionListComponent {
 
   }
 
+  public clear()
+  {
+    this.firestoreService.clearExtractionList();
+  }
+
 }

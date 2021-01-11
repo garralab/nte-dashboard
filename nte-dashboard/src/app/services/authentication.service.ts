@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 import { AngularFireAuth } from "@angular/fire/auth"
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Functions } from '../utilities.functions';
 import { Router } from '@angular/router';
