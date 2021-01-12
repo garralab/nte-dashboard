@@ -29,7 +29,7 @@ export class HomeInternaComponent {
 
   constructor(
     public firestoreService: FirestoreService,
-    private authenticationService: AuthenticationService    
+    public authenticationService: AuthenticationService    
   ) {
     this.firestoreService.getAvailableDashboards();
   }
