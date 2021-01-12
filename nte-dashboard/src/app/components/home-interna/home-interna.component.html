@@ -2,30 +2,35 @@
   <div class="home-inner-container">
 
     <div class="dashboard-title-container">
-      <h1 class="dashboard-title">Not The End - Dashboard</h1>
+      <h1 class="dashboard-title">Not The End</h1>
+      <h2 class="dashboard-title">Dashboard</h2>
+      <hr/>
+      <h3>Benvenuto {{authenticationService.myEmail}}</h3>  
     </div>
-
     <!--#region - enter dashboard -->
-    <div *ngIf="showCreateDashboard == false" class="go-to-dashboard-container">
+    <div *ngIf="!showCreateDashboard" class="go-to-dashboard-container">
       <form class="go-to-form">
-        <mat-form-field class="go-to-dashboard-id">
-          <mat-label class="go-to-dashboard-id-label">Scegli la dashboard</mat-label>
-          <mat-select [(ngModel)]="selectedDashboard" [ngModelOptions]="{standalone: true}">
-            <mat-option *ngFor="let aDash of (firestoreService.dashboardDatasListObservable | async)"
-              [value]="aDash.dashboardID">
+        <mat-form-field class="go-to-dashboard-id" appearance="fill">
+          <mat-label class="go-to-dashboard-id-label">Dashboard</mat-label>
+          <mat-select [formControl]="selectDashboardControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let aDash of (firestoreService.dashboardDatasListObservable | async)" [value]="aDash">
               {{aDash.dashboardTitle}}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="selectDashboardControl.hasError('required')">Seleziona una dashboard</mat-error>          
         </mat-form-field>
 
-      </form>
+      </form>  
 
-      <button mat-raised-button class="go-to-dashboard-button" (click)="enterDashboard()">Entra</button>
+      <button mat-raised-button class="go-to-dashboard-button" (click)="enterDashboard()" [disabled]="!selectDashboardControl.value">Entra in <em>{{selectDashboardControl.value?.dashboardTitle}}</em></button>
+
+      <!--
       <div *ngIf="isDevMode">
         <p><button mat-raised-button (click)="exportDashboard()">Esporta</button></p>
         <p><button mat-raised-button (click)="importDashboard()">Importa</button></p>
       </div>
-      
+      -->      
     </div>
 
     <div *ngIf="showCreateDashboard == false" class="new-dashboard-container">
@@ -97,6 +102,13 @@
       <button mat-raised-button class="new-dashboard-button" (click)="createDashboard()">Torna Indietro</button>
     </div>
     <!--#endregion - create dashboard -->
+
+    <!--#region - logout -->
+    <div *ngIf="showCreateDashboard == false" class="new-dashboard-container">
+      <span class="new-dashboard-label">oppure</span>
+      <button mat-raised-button class="new-dashboard-button" (click)="logout()">Logout</button>
+    </div>    
+    <!--#region - logout -->
 
   </div>
 </div>

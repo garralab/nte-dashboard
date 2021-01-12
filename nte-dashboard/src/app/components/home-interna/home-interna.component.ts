@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { isDevMode } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Functions } from 'src/app/utilities.functions';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DashboardData } from 'src/app/models/app.model';
 
 @Component({
   selector: 'home-interna-component',
@@ -10,13 +11,6 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./home-interna.component.css']
 })
 export class HomeInternaComponent {
-
-  // public dashboardList: any[] = [
-  //   { value: 'steak-0', viewValue: 'Steak' },
-  //   { value: 'pizza-1', viewValue: 'Pizza' },
-  //   { value: 'tacos-2', viewValue: 'Tacos' }
-  // ];
-  public selectedDashboard: any;
 
   public dashTitle: string = "";
   public isMasterMail: boolean = false;
@@ -31,13 +25,16 @@ export class HomeInternaComponent {
   public showCreateDashboard: boolean = false;
 
   public isDevMode: boolean = isDevMode();
+  public selectDashboardControl = new FormControl('', Validators.required);
 
   constructor(
     public firestoreService: FirestoreService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService    
   ) {
     this.firestoreService.getAvailableDashboards();
   }
+
+  //public selectedDashboard() : any { return this.formControl.get('selectedDashboard').value; }
 
   /**
    * toggle create dashboard
@@ -94,24 +91,26 @@ export class HomeInternaComponent {
     this.firestoreService.createDashboard(this.dashTitle, userMails, masterEmail);
   }
 
+  private selectedDashboard() : DashboardData { return this.selectDashboardControl.value as DashboardData };
+
   /**
    * jump in the selected dashboard
    */
   public enterDashboard() {
-    if (Functions.IsNullOrUndefined(this.selectedDashboard) == true)
+    if (Functions.IsNullOrUndefined(this.selectDashboardControl.value) == true)
       return;
 
     //ask for data
-    this.firestoreService.enterDashboard(this.selectedDashboard);
+    this.firestoreService.enterDashboard(this.selectedDashboard().dashboardID);
   }
 
   /**
    * export dashboard
    */
   public exportDashboard() {
-    if (Functions.IsNullOrUndefined(this.selectedDashboard) == true)
+    if (Functions.IsNullOrUndefined(this.selectDashboardControl.value) == true)
       return;
-    this.firestoreService.exportDashboard(this.selectedDashboard);
+    this.firestoreService.exportDashboard(this.selectedDashboard().dashboardID);
   }
 
   /**
@@ -121,4 +120,7 @@ export class HomeInternaComponent {
     this.firestoreService.startImportDashboard();
   }    
 
+  public logout() {
+    this.authenticationService.logout();
+  }
 }

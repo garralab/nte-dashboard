@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Location } from '@angular/common';
 import { AngularFireAuth } from "@angular/fire/auth"
 import * as firebase from 'firebase/app';
@@ -14,6 +14,7 @@ export class AuthenticationService {
   public myEmail: string = "";
 
   constructor(
+    private ngZone: NgZone,
     private afAuth: AngularFireAuth,
     public routerService: Router,
     public location: Location,
@@ -21,9 +22,6 @@ export class AuthenticationService {
   ) {
     let self = this;
     this.afAuth.auth.languageCode = "it";
-    this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.NONE).then(function () {
-      //changing session state
-    });
 
     this.afAuth.auth.onAuthStateChanged((userAuth: any) => {
       // safety check
@@ -34,8 +32,10 @@ export class AuthenticationService {
       self.myEmail = userAuth.email;
 
       if (Functions.IsNullOrUndefined(userAuth.uid) == false) {
-        self.routerService.navigate(['/home-interna'], { skipLocationChange: true, queryParams: {} });
-        self.location.replaceState("");
+        this.ngZone.run( () => {
+          self.routerService.navigate(['/home-interna'], { skipLocationChange: true, queryParams: {} });
+          self.location.replaceState("");
+        });
       }
     }, (err) => {
       // Error
@@ -47,21 +47,39 @@ export class AuthenticationService {
     });
   }
 
+  public logout() {
+    let self = this;
+    this.afAuth.auth.signOut().then(() => {
+        // signout succesfull
+        self.myID = null;
+        self.myEmail = null;
+        this.ngZone.run( () => {
+          self.routerService.navigate(['/home'], { skipLocationChange: true, queryParams: {} });
+          self.location.replaceState("");
+        });    
+    }).catch((error) => {
+      self.toastr.error('Errore, riprova per favore', 'Errore', {
+        timeOut: 10000,
+        extendedTimeOut: 4000,
+        positionClass: "toast-top-center"
+      });
+    });
+  }
 
   public login(mail: string, password: string) {
     let self = this;
-    this.afAuth.auth.signInWithEmailAndPassword(mail, password)
-      .then((data: firebase.auth.UserCredential) => {
-        //TODO:
-      })
-      .catch((error: any) => {
-        // Error
-        self.toastr.error('Errore, riprova per favore', 'Errore', {
-          timeOut: 10000,
-          extendedTimeOut: 4000,
-          positionClass: "toast-top-center"
-        });
+    
+    this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(() => {
+      return this.afAuth.auth.signInWithEmailAndPassword(mail, password);
+    })
+    .catch((error) => {
+      self.toastr.error('Errore, riprova per favore', 'Errore', {
+        timeOut: 10000,
+        extendedTimeOut: 4000,
+        positionClass: "toast-top-center"
       });
+    });
   }
 
   public signUp(mail: string, password: string) {

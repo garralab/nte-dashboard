@@ -260,6 +260,9 @@
   background-color: #e0ae40;
 }
 
+.share-button {
+  margin: 2%;
+}
 
 .extraction-panel {
   display: flex;
