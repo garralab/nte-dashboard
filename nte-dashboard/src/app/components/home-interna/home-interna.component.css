@@ -16,7 +16,8 @@
 .go-to-form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+  margin: 5%;
 }
 
 .create-form {
@@ -40,11 +41,13 @@
 }
 
 .new-dashboard-button {
-  width: 50%;
+  width: 100%;
+  margin: 5%;
 }
 
 .go-to-dashboard-button {
-  width: 50%;
+  width: 100%;
+  margin: 5%;
 }
 
 .go-to-dashboard-input {
@@ -76,4 +79,8 @@
 
 .master-mail-check {
   margin-bottom: 10px;
+}
+
+.dashboard-title-container {
+  text-align: center;
 }

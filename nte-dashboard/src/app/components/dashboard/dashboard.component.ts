@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DashboardData, CharacterSheet } from 'src/app/models/app.model';
+import { CharacterSheet } from 'src/app/models/app.model';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { Functions } from 'src/app/utilities.functions';
 import { MatDialog } from '@angular/material/dialog';
@@ -126,6 +126,12 @@ export class DashboardComponent {
   public deleteDashboard() {
     if (window.confirm("Se procedi cancellerai l'intera dashboard (il processo è irreversibile), vuoi continuare?")) {
       this.firestoreService.deleteDashboard();
+    }
+  }
+
+  public exit() {
+    if (window.confirm("Vuoi uscire dalla dashboard e tornare al menù?")) {
+      this.firestoreService.exitDashboard();
     }
   }
 }
