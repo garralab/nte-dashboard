@@ -83,4 +83,19 @@ export class LezioniComponent {
     this.firestoreService.updatePG();
   }
 
+  public formatDescription(descr: string | null)
+  {
+    if (Functions.IsNullOrUndefined(descr))
+      return null;
+
+    var re_b = /@B@/gi;
+    var re_n = /@N@/gi;
+    var re_r = /@R@/gi;
+
+    return descr
+      .replace(re_b, '<span class="positive-token"></span>')
+      .replace(re_n, '<span class="negative-token"></span>')
+      .replace(re_r, '<span class="random-token"></span>');
+  }
+
 }
