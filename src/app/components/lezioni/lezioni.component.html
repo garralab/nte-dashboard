@@ -7,7 +7,7 @@
       <mat-icon *ngIf="isLessonOneHover" class="edit-lesson-icon">edit</mat-icon>
       <div class="lesson-inner-container">
         <span class="lesson-title">{{ characterSheet.lessons[0]?.name }}</span>
-        <p class="lesson-decription">{{ characterSheet.lessons[0]?.description }}</p>
+        <p class="lesson-decription" [innerHtml]="formatDescription(characterSheet.lessons[0]?.description)"></p>
         <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.lessons[0]?.activated}" (mouseenter)="isLessonOneHover = false" (mouseleave) = "isLessonOneHover = true" (click)="triggerLesson($event, 0)"></div>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <mat-icon *ngIf="isLessonTwoHover" class="edit-lesson-icon">edit</mat-icon>
       <div class="lesson-inner-container">
         <span class="lesson-title">{{ characterSheet.lessons[1]?.name }}</span>
-        <p class="lesson-decription">{{ characterSheet.lessons[1]?.description }}</p>
+        <p class="lesson-decription" [innerHtml]="formatDescription(characterSheet.lessons[1]?.description)"></p>
         <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.lessons[1]?.activated}" (mouseenter)="isLessonOneHover = false" (mouseleave) = "isLessonOneHover = true" (click)="triggerLesson($event, 1)"></div>
       </div>
     </div>
@@ -25,7 +25,7 @@
       <mat-icon *ngIf="isLessonThreeHover" class="edit-lesson-icon">edit</mat-icon>
       <div class="lesson-inner-container">
         <span class="lesson-title">{{ characterSheet.lessons[2]?.name }}</span>
-        <p class="lesson-decription">{{ characterSheet.lessons[2]?.description }}</p>
+        <p class="lesson-decription" [innerHtml]="formatDescription(characterSheet.lessons[2]?.description)"></p>
         <div class="hex-dot" [ngClass]="{'hex-dot-tokenized': characterSheet.lessons[2]?.activated}" (mouseenter)="isLessonOneHover = false" (mouseleave) = "isLessonOneHover = true" (click)="triggerLesson($event, 2)"></div>
       </div>
     </div>
