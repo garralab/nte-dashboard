@@ -8,9 +8,6 @@
   <div class="extraction-list-inner-container">
     <ng-template ngFor let-anExtraction [ngForOf]="firestoreService.dashboardData.extractions">
       <div *ngIf="anExtraction.isRisk == false"  class="extraction-container">
-        <span class="extraction-owner">{{anExtraction.owner}}</span>
-        <span class="extraction-action"> - ha nel sacchetto: </span>
-
         <ng-template ngFor let-aToken [ngForOf]="anExtraction.extractionSack">
           <span *ngIf="aToken == 0" class="positive-token token-big"></span>
           <span *ngIf="aToken == 1" class="negative-token token-big"></span>
